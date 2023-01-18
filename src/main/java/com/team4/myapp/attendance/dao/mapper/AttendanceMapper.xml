@@ -108,7 +108,8 @@
 	<![CDATA[
 		SELECT
 			m.member_id AS memberId, 
-			a.attendance_status AS attendanceStatus
+			a.attendance_status AS attendanceStatus,
+			a.SUBMIT_STATUS as submitStatus
 		FROM
 			members m, attendance a
 		WHERE 
