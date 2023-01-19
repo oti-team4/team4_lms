@@ -1,6 +1,5 @@
 package com.team4.myapp.attendance.model.dto;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 import com.team4.myapp.attendance.model.Attendance;
@@ -32,7 +31,7 @@ public class CalendarDto {
 		String color = "";
 		String url = null;
 		int aStatus = attendance.getAttendanceStatus();
-		System.out.println(attendance.getSubmitStatus());
+		System.out.println(attendance.getAttendanceDate());
 
 		switch (aStatus) {
 		case 0:
@@ -70,7 +69,11 @@ public class CalendarDto {
 			// 수정페이지
 			url = "/cause/update/0?attendanceId=" + attendance.getAttendanceId();
 		}  
-		return new CalendarDto(attendance.getAttendanceDate(), attendance.getAttendanceDate(), status, attendance.getAttendanceId()+"",
+		
+		if(attendance.getCheckIn() == null && attendance.getCheckOut() == null) return  new CalendarDto(attendance.getAttendanceDate(), attendance.getAttendanceDate(), "-", attendance.getAttendanceId()+"",
+				attendance.getAttendanceStatus(), attendance.getSubmitStatus(), attendance.getMemberName(), attendance.getLectureId(), color, color, url);
+		
+		return new CalendarDto(attendance.getCheckIn(), attendance.getCheckOut(), status, attendance.getAttendanceId()+"",
 				attendance.getAttendanceStatus(), attendance.getSubmitStatus(), attendance.getMemberName(), attendance.getLectureId(), color, color, url);
 
 	}

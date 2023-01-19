@@ -1,8 +1,8 @@
 package com.team4.myapp.attendance.model;
 
 
-import java.util.Date;
 import java.sql.Timestamp;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

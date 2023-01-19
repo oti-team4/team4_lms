@@ -43,7 +43,7 @@ public class BoardController {
 	IReplyService replyService;
 	// 작성 폼 열기
 	@RequestMapping(value = "/board/write/{boardType}", method = RequestMethod.GET)
-	public String writeArticle(@PathVariable String boardType, Locale locale, Model model) {
+	public String writeArticle(@PathVariable String boardType, Model model) {
 		model.addAttribute("boardType", boardType);
 		return "board/writeform";
 	}
