@@ -606,20 +606,16 @@
 									<div class="modal-content">
 										<div class="modal-header">
 											삭제 확인
-											<button class="close" type="button" data-dismiss="modal"
-												aria-label="Close">
-												<span aria-hidden="true">x</span>
+											<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
 											</button>
 										</div>
 										<div class="modal-body">해당 게시물을 삭제하시겠습니까?</div>
 										<div class="modal-footer">
-											<form action='<c:url value="/board/delete"/>'
-												class="form-inline" method="post">
+											<form action='<c:url value="/board/delete"/>' class="form-inline" method="post">
 												<input type="hidden" name="boardId" value="${board.boardId}">
-												<input type="hidden" name="boardType"
-													value="${board.boardType}"> <a href="#">
-													<button type="submit" class="btn btn-danger">삭제</button>
-												</a>&ensp;
+												<input type="hidden" name="boardType" value="${board.boardType}"> 
+												<button type="submit" class="btn btn-danger">삭제</button>&ensp;
 												<button type="button" class="btn btn-success"
 													style="background-color: grey" data-dismiss="modal"
 													aria-label="Close">취소</button>

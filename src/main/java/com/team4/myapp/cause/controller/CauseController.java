@@ -214,7 +214,7 @@ public class CauseController {
 	}
 	
 	@RequestMapping(value="/cause/update", method=RequestMethod.POST)
-	public String updateCause(Cause cause, BindingResult result, HttpSession session, RedirectAttributes redurectAttrs) {
+	public String updateCause(Cause cause, HttpSession session) {
 		logger.info("/cause/update : "+ cause.toString());
 	
 		causeService.updateCause(cause);
