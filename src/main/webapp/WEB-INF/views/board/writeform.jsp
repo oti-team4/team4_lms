@@ -17,16 +17,16 @@
         </div>
     </div>
    <div class="content">
-   <hr/><h1 class="headline"><c:if test="${boardType=='reference'}"><fmt:message key="REFERENCE"/></c:if>
-   		<c:if test="${boardType=='community'}"><fmt:message key="COMMUNITY"/></c:if></h1><hr/>
+   <hr/><h1 class="headline"><c:if test="${boardType eq 'reference'}"><fmt:message key="REFERENCE"/></c:if>
+   		<c:if test="${boardType eq 'community'}"><fmt:message key="COMMUNITY"/></c:if></h1><hr/>
    <div class="row">
             <div class="col-md-8 pc">
                 <h2><fmt:message key="WRITE_NEW_ARTICLE"/></h2>
             </div>
             <div class="col-md-4">
                 <ol class="breadcrumb">
-                    <li><c:if test="${boardType=='reference'}"><fmt:message key="REFERENCE"/></c:if>
-   						<c:if test="${boardType=='community'}"><fmt:message key="COMMUNITY"/></c:if>/</li>
+                    <li><c:if test="${boardType eq'reference'}"><fmt:message key="REFERENCE"/></c:if>
+   						<c:if test="${boardType eq'community'}"><fmt:message key="COMMUNITY"/></c:if>/</li>
                     <li class="active"><fmt:message key="WRITE_NEW_ARTICLE"/></li>
                 </ol>
             </div>

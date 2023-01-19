@@ -59,26 +59,5 @@ $(function(){
 	    }
 	});
 })
-
-
-
-    //이미지 미리보기
- /*   $('#cause_file').on('change', function() {
-	    ext = $(this).val().split('.').pop().toLowerCase(); //확장자
-	    console.log("확장자: "+ext);
-	    //배열에 추출한 확장자가 존재하는지 체크
-	    if($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
-	        resetFormElement($(this)); //폼 초기화
-	        window.alert('이미지 파일이 아닙니다! (gif, png, jpg, jpeg 만 업로드 가능)');
-	    } else {
-	    	var file = event.target.files[0]; //event인터페이스의 target속성 => event가 발생한 객체
-	        var reader = new FileReader(); 
-	        
-	        reader.onload = function(e) {
-	            $("#preview").attr("src", e.target.result);
-	        }
-	        reader.readAsDataURL(file);
-	    }
-    });*/
     
    

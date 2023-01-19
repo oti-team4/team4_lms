@@ -102,9 +102,10 @@
 		]]>
 	</update>
 	
-	<update id="updateCauseContent" parameterType="string">
+	<update id="updateCauseContent" parameterType="map">
 		<![CDATA[
 			UPDATE CAUSE SET CAUSE_CONTENT = #{content}
+			WHERE CAUSE_ID=#{causeId}
 		]]>
 	</update>
 	
@@ -128,7 +129,7 @@
 		]]>
 	</select> 
 	
-	<select id="selectCauseListAdminDate" resultType="com.team4.myapp.cause.model.dto.CauseListDto">
+	<select id="selectCauseListAdminDate" parameterType="hashmap" resultType="com.team4.myapp.cause.model.dto.CauseListDto">
 		<![CDATA[
 				SELECT bb.CAUSE_ID 	AS	causeId,
 	        		WRITE_DATE 	AS 		writeDate,
@@ -142,9 +143,9 @@
 	        		RNUM+1 AS seq
 					FROM( SELECT aa.CAUSE_ID, aa.WRITE_DATE, aa.CAUSE_CONTENT, CATEGORY_ID, aa.MEMBER_ID, aa.MEMBER_NAME, ATTENDANCE_STATUS, ATTENDANCE_DATE, CAUSE_STATUS, ROWNUM AS RNUM
 	            		FROM (
-	                		SELECT  CAUSE_ID, CAUSE.WRITE_DATE, CAUSE.CAUSE_CONTENT, CATEGORY_ID, CAUSE.MEMBER_ID, MEMBERS.MEMBER_NAME, ATTENDANCE_STATUS, to_char(ATTENDANCE.ATTENDANCE_STATUS,'yyyy-MM-dd') AS ATTENDANCE_DATE, CAUSE.CAUSE_STATUS
+	                		SELECT  CAUSE_ID, CAUSE.WRITE_DATE, CAUSE.CAUSE_CONTENT, CATEGORY_ID, CAUSE.MEMBER_ID, MEMBERS.MEMBER_NAME, ATTENDANCE_STATUS, to_char(ATTENDANCE.ATTENDANCE_date,'yyyy-MM-dd') AS ATTENDANCE_DATE, CAUSE.CAUSE_STATUS 
 	                		FROM CAUSE, ATTENDANCE, MEMBERS
-	                		WHERE ATTENDANCE_DATE=#{date} AND ATTENDANCE.ATTENDANCE_ID = CAUSE.ATTENDANCE_ID AND CAUSE.MEMBER_ID = MEMBERS.MEMBER_ID
+	                		WHERE to_char(ATTENDANCE_DATE,'yyyy-MM-dd')=#{date} AND ATTENDANCE.ATTENDANCE_ID = CAUSE.ATTENDANCE_ID AND CAUSE.MEMBER_ID = MEMBERS.MEMBER_ID
 	                		ORDER BY WRITE_DATE DESC
 	                	) aa
 	        		) bb
@@ -154,13 +155,13 @@
 	
 	<select id="getSubmitStatusDateNo" parameterType="hashmap" resultType="int">
 		<![CDATA[
-			SELECT COUNT(*) AS count FROM CAUSE c, ATTENDANCE a where to_char(ATTENDANCE_DATE,'yyyy-MM-dd') AS ATTENDANCE_DATE=#{date} AND a.ATTENDANCE_ID=c.ATTENDANCE_ID AND CAUSE_STATUS=#{status}
+			SELECT COUNT(*) AS count FROM CAUSE c, ATTENDANCE a where to_char(ATTENDANCE_DATE,'yyyy-MM-dd')=#{date} AND a.ATTENDANCE_ID=c.ATTENDANCE_ID AND CAUSE_STATUS=#{status}
 		]]>
 	</select> 
 	
 	<select id="selectDateCount" parameterType="string" resultType="int">
 		<![CDATA[
-			SELECT COUNT(*) AS count FROM CAUSE c, ATTENDANCE a where to_char(ATTENDANCE_DATE,'yyyy-MM-dd') AS ATTENDANCE_DATE=#{date} AND a.ATTENDANCE_ID=c.ATTENDANCE_ID
+			SELECT COUNT(*) AS count FROM CAUSE c, ATTENDANCE a where to_char(ATTENDANCE_DATE,'yyyy-MM-dd')=#{date} AND a.ATTENDANCE_ID=c.ATTENDANCE_ID
 		]]>
 	</select> 
 	

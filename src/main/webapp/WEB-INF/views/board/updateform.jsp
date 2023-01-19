@@ -1,4 +1,5 @@
 <%@ include file="/WEB-INF/views/fragment/head.jsp" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
 	$("p").hide();
@@ -25,8 +26,8 @@ $(document).ready(function(){
     </div>
    <div class="content">
    <hr/><h1 class="headline">
-   		<c:if test="${board.boardType=='reference'}"><fmt:message key="REFERENCE"/></c:if>
-   		<c:if test="${board.boardType=='community'}"><fmt:message key="COMMUNITY"/></c:if>
+   		<c:if test="${board.boardType eq 'reference'}"><fmt:message key="REFERENCE"/></c:if>
+   		<c:if test="${board.boardType eq 'community'}"><fmt:message key="COMMUNITY"/></c:if>
    	</h1><hr/>
    <div class="row">
             <div class="col-md-8 pc">
@@ -34,8 +35,8 @@ $(document).ready(function(){
             </div>
             <div class="col-md-4">
                 <ol class="breadcrumb">
-                    <li><c:if test="${board.boardType=='reference'}"><fmt:message key="REFERENCE"/></c:if>
-   						<c:if test="${board.boardType=='community'}"><fmt:message key="COMMUNITY"/></c:if>/</li>
+                    <li><c:if test="${board.boardType eq 'reference'}"><fmt:message key="REFERENCE"/></c:if>
+   						<c:if test="${board.boardType eq 'community'}"><fmt:message key="COMMUNITY"/></c:if>/</li>
                     <li class="active"><fmt:message key="UPDATE_ARTICLE"/></li>
                 </ol>
             </div>
