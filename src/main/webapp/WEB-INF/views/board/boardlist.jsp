@@ -9,6 +9,7 @@ color: grey;
 #detail:hover {
   color: orange;
 }
+
 </style>
 <%@ include file="/WEB-INF/views/fragment/nav.jsp"%>
 
@@ -33,7 +34,7 @@ color: grey;
 				    </div>
 				</div>
 			</form>
-			<table class="table table-striped custom-table">
+			<table class="table table-striped custom-table" style='table-layout:fixed'>
 				<thead>
 					<tr>
 						<th scope="col">번호</th>
