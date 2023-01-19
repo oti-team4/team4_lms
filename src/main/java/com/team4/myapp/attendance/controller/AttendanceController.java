@@ -47,7 +47,7 @@ public class AttendanceController {
 
 	// 유저의 출결 현황 조회
 	@RequestMapping(value = "/attendance/main", method = RequestMethod.GET)
-	public String home(HttpSession session, Locale locale, Model model) {
+	public String home(HttpSession session, Model model) {
 		String memberId = (String) session.getAttribute("memberid");
 		String checkin = null;
 		String checkout = null;

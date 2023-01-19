@@ -26,7 +26,7 @@ public class AttendanceScheduler {
 
 	// 초 분 시 일 월 요일
 	// 매일 오전 5시에 오늘의 출결 데이터가 초기화되어 삽입된다.
-	@Scheduled(cron = "0 0 6 * * 1-5")
+	@Scheduled(cron = "0 0 5 * * 1-5")
 	public void today_init() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA);
 		String today = sdf.format(new Date());
