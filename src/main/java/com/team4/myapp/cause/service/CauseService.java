@@ -164,8 +164,9 @@ public class CauseService implements ICauseService{
 	//사유서 삭제하기
 	@Transactional
 	public void deleteCause(int causeId) {
+		int attendanceId = attendanceRepository.selectAttendanceIdByCauseId(causeId);
 		causeRepository.deleteCause(causeId);
-		attendanceRepository.changeSubmitStatus(0, causeId);
+		attendanceRepository.changeSubmitStatus(attendanceId, 0);
 	}
 
 	@Override
