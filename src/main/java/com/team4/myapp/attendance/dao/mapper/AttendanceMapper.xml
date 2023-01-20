@@ -256,4 +256,10 @@
 		]]>
 	</select>
 	
+	<select id="selectAttendanceIdByCauseId" parameterType="int" resultType="int">
+		<![CDATA[
+			SELECT ATTENDANCE_ID AS attendanceId FROM CAUSE WHERE CAUSE_ID = #{causeId}
+		]]>
+	</select>
+	
 </mapper>

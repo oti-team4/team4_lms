@@ -37,4 +37,5 @@ public interface IAttendanceRepository {
 			@Param("memberId") String memberId, @Param("today") String today);
 	
 	Statistics selectStatistics(@Param("memberId")String memberId);
+	int selectAttendanceIdByCauseId(int causeId);
 	}
