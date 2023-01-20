@@ -20,7 +20,9 @@ public interface ICauseRepository {
 	List<CauseListDto> selectCauseAdmin(@Param("start")int start, @Param("end") int end);
 	
 	void updateCauseFile(Cause cause);
-	void updateCauseContent(@Param("content") String content, @Param("causeId") int causeId);	void deleteCause(int causeId);
+
+	void updateCauseContent(@Param("content") String content, @Param("causeId") int causeId);
+	void deleteCause(int causeId);
 
 	void accept(@Param("causeId") int causeId, @Param("causeStatus") int causeStatus);
 	int getSubmitStatusNo(int status);

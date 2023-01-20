@@ -9,6 +9,7 @@ color: grey;
 #detail:hover {
   color: orange;
 }
+
 </style>
 <%@ include file="/WEB-INF/views/fragment/nav.jsp"%>
 
