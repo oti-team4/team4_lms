@@ -53,7 +53,10 @@ public class CalendarDto {
 		}
 		
 		// 승인된 사유라면 출석버튼과 동일한 색상으로 처리
-		if(attendance.getSubmitStatus() == 2) color = "#47D99E";
+		if(attendance.getSubmitStatus() == 2) {
+			color = "#47D99E";
+			status = "인정결석";
+		}
 
 		if(attendance.getAttendanceStatus() == 1) url = "/attendance/main";
 		else if(attendance.getAttendanceStatus() != 1 && attendance.getSubmitStatus() == 0) {
@@ -70,7 +73,7 @@ public class CalendarDto {
 			url = "/cause/update/0?attendanceId=" + attendance.getAttendanceId();
 		}  
 		
-		if(attendance.getCheckIn() == null && attendance.getCheckOut() == null) return  new CalendarDto(attendance.getAttendanceDate(), attendance.getAttendanceDate(), "-", attendance.getAttendanceId()+"",
+		if(attendance.getCheckIn() == null && attendance.getCheckOut() == null) return  new CalendarDto(attendance.getAttendanceDate(), attendance.getAttendanceDate(), " ", attendance.getAttendanceId()+"",
 				attendance.getAttendanceStatus(), attendance.getSubmitStatus(), attendance.getMemberName(), attendance.getLectureId(), color, color, url);
 		
 		return new CalendarDto(attendance.getCheckIn(), attendance.getCheckOut(), status, attendance.getAttendanceId()+"",

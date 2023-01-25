@@ -30,24 +30,31 @@ background-color: #efefef;;
 </style>
 <%@ include file="/WEB-INF/views/fragment/nav.jsp"%>
 	<div class="content" style="border-bottom: 1px gray solid;">
-		<div class="container">
-			<div style="border-top: 1px solid gray;">
-				<h1 class="mb-5 mt-3" style="font-weight: 400 !important;">강의 출결 관리</h1>
-			</div>
-			<div class="row justify-content-center" style="border-top: 1px solid gray">
-				<p></p><br/>
-				<c:forEach var="lecture" items="${lectureList}">
-					<form action="<c:url value='/lecture/${lecture.lectureId}'/>"
-						method="get" class="form-horizontal" style="width: 100%;">
-						<input type="hidden" value="${lecture.lectureName}"
-							name="lectureName" />
-						<button type="submit" class="btn mb-1"
-							style="background-color: #F9F6F1; width: 100%; height:200px;">${lecture.lectureName}</button>
-					</form>
-				</c:forEach>
-			</div>
-		</div>
-	</div>
+   <div class="container">
+      <div style="border-top: 1px solid gray;">
+         <h1 class="mb-5 mt-3" style="font-weight: 400 !important;">강의 출결
+            관리</h1>
+      </div>
+      <br />
+      <div class="row">
+         <c:forEach var="lecture" items="${lectureList}">
+            <div class="card col-4 text-left">
+               <img class="card-img-top" src="/images/logo/OTIUniversity.png"
+                  alt="Card image">
+               <div class="card-body">
+                  <h4 class="card-title">${lecture.lectureName}</h4>
+                  <p class="card-text">KOSA관 402호</p>
+                  <form action="<c:url value='/lecture/${lecture.lectureId}'/>"
+                     method="get" class="form-horizontal" style="width: 100%;">
+                     <input type="hidden" value="${lecture.lectureName}" name="lectureName" />
+                     <button type="submit" class="btn btn-warning mb-1">강의실 입장하기</button>
+                  </form>
+               </div>
+            </div>
+         </c:forEach>
+      </div>
+   </div>
+</div>
 </body>
 </head>
 </html>
