@@ -17,7 +17,9 @@
 			member_name AS memberName,
 			attendance_date AS attendanceDate,
 			attendance_status AS attendanceStatus,	
-			lecture_id AS lectureId		
+			lecture_id AS lectureId,
+			check_in as checkIn,
+			check_out as checkOut
 		FROM 
 			attendance a, members m
 		WHERE
